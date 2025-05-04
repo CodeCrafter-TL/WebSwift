@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebSwift - Test Page</title>
+    <link rel="stylesheet" href="./assets/index.css" />
+</head>
+
+<body>
+    <c-button>Hello</c-button>
+    <c-button primary>Hello</c-button>
+    <c-button disabled="true">Hello</c-button>
+    <c-button primary disabled="true">Hello</c-button>
+    <c-messagebox iconpath="assets/访达.png">
+        <!-- <img src="assets/访达.png" /> -->
+        <p slot="title">Title Goes Here</p>
+        <p slot="text">Text Goes Here</p>
+        <c-button primary slot="button">Button Goes Here</c-button>
+    </c-messagebox>
+    <c-checkbox state="on">Hello</c-checkbox>
+    <c-checkbox state="off">Hello</c-checkbox>
+    <c-checkbox state="on" disabled="true">Hello</c-checkbox>
+    <c-checkbox state="off" disabled="true">Hello</c-checkbox>
+
+    <script src="./dist/webswift.js"></script>
+</body>
+
+</html>
