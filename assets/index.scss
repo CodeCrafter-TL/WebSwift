@@ -1,131 +1,96 @@
-// body {
-//     background: black;
-// }
+$names : "SFPro-Regular",
+"PingFangSC-Regular",
+"SFPro-Bold",
+"PingFangSC-Bold";
+$urls : url(./sf-pro-display_regular.woff2),
+url(./PingFangSC-Regular.woff2),
+url(./sf-pro-display_semibold.woff2),
+url(./PingFangSC-Semibold.woff2);
+$iter: 1;
 
-@font-face {
-    font-family: "SFPro-Regular";
-    src: url(./sf-pro-display_regular.woff2);
+@each $i in $names {
+    @font-face {
+        font-family: $i;
+        src: nth($urls, $iter);
+    }
+
+    $iter: $iter + 1;
 }
 
-@font-face {
-    font-family: "PingFangSC-Regular";
-    src: url(./PingFangSC-Regular.woff2);
-}
+div[window] {
+    width: 400px;
+    height: 300px;
+    background: #fff;
+    box-shadow: 0 36px 100px 0 rgba(0, 0, 0, 0.35),
+        0 0 3px 0 rgba(0, 0, 0, 0.23),
+        inset 0 0 3px 0 rgba(255,255,255,0.10);
+    border-radius: 10px;
+    overflow: hidden;
+    min-width: 86px;
+    min-height: 38px;
+    resize: both;
 
-@font-face {
-    font-family: "SFPro-Bold";
-    src: url(./sf-pro-display_semibold.woff2);
-}
+    &::-webkit-resizer {
+        display: none;
+    }
 
-@font-face {
-    font-family: "PingFangSC-Bold";
-    src: url(./PingFangSC-Semibold.woff2);
-}
-
-div[checkbox] {
-    width: auto;
-    height: auto;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    user-select: none;
-    cursor: default;
-
-    div[type] {
-        width: 14px;
-        height: 14px;
+    div[titlebar] {
+        width: 100%;
+        height: 28px;
         position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(245, 245, 245, 80);
+        box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.15);
 
-        img[mark] {
-            width: 100%;
-            height: 100%;
+        div[wintools] {
+            width: auto;
+            height: 28px;
+            display: inline-flex;
             position: absolute;
             top: 0;
             left: 0;
-            z-index: 1;
-            scale: 0.6;
-            display: none;
-        }
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-left: 8px;
 
-        div[gradient] {
-            opacity: 0.17;
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border-radius: 3.5px;
-            z-index: -1;
-            display: none;
-        }
-
-        div[fill] {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -2;
-            background: #FFFFFF;
-            border: 0.5px solid rgba(0, 0, 0, 0.15);
-            box-shadow: inset 0 1px 2px 0 rgba(0, 0, 0, 0.10), inset 0 0 2px 0 rgba(0, 0, 0, 0.10);
-            border-radius: 3.5px;
-        }
-    }
-
-    &[state=on] {
-        div[type] {
-            img[mark] {
-                display: initial;
-                filter: invert(1);
+            div[oval] {
+                width: 12px;
+                height: 12px;
+                border-radius: 6px;
+                margin-right: 8px;
             }
 
-            div[gradient] {
-                display: block;
-                background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0.00) 96%);
+            div[close] {
+                background: #ff5f57;
+                border: 0.5px solid rgba(0, 0, 0, 0.20);
             }
 
-            div[fill] {
-                border: none;
-                background: #007aff;
-                box-shadow: 0 0 3px 0 rgba(255, 255, 255, 0.12), 0 1px 2px 0 rgba(255, 255, 255, 0.12), 0 0 1px 0 rgba(255, 255, 255, 0.24);
+            div[minimize] {
+                background: #febc2e;
+                border: 0.5px solid rgba(0, 0, 0, 0.20);
             }
+
+            div[zoom] {
+                background: #28c840;
+                border: 0.5px solid rgba(0, 0, 0, 0.20);
+            }
+        }
+
+        p[title] {
+            font-size: 13px;
+            font-family: "SFPro-Bold", "PingFangSC-Bold";
+            max-width: 40%;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
     }
 
-    &[disabled=true] {
-        &[state=on] {
-            img[mark] {
-                filter: invert(0) !important;
-                opacity: 0.25 !important;
-            }
-
-            div[gradient] {
-                display: none;
-            }
-
-            div[fill] {
-                opacity: 0.5 !important;
-                background: #FFFFFF !important;
-                border: 0.5px solid rgba(0, 0, 0, 0.02) !important;
-                box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.15), 0 1px 0 0 rgba(0, 0, 0, 0.05) !important;
-            }
-        }
-
-        &[state=off] {
-            div[fill] {
-                opacity: 0.49;
-                background: #FFFFFF;
-                border: 0.5px solid rgba(0, 0, 0, 0.15);
-                box-shadow: inset 0 1px 2px 0 rgba(0, 0, 0, 0.10), inset 0 0 2px 0 rgba(0, 0, 0, 0.10);
-            }
-        }
-    }
-
-    p[label] {
-        margin: 0;
-        margin-left: 6px;
-        font-size: 13px;
-        font-family: "SFPro-Regular", "PingFangSC-Regular";
+    div[content] {
+        width: 100%;
+        height: 100%;
     }
 }

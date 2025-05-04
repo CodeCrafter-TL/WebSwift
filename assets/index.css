@@ -14,90 +14,69 @@
   font-family: "PingFangSC-Bold";
   src: url(./PingFangSC-Semibold.woff2);
 }
-div[checkbox] {
-  width: auto;
-  height: auto;
-  display: inline-flex;
+div[window] {
+  width: 400px;
+  height: 300px;
+  background: #fff;
+  box-shadow: 0 36px 100px 0 rgba(0, 0, 0, 0.35), 0 0 3px 0 rgba(0, 0, 0, 0.23), inset 0 0 3px 0 rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  min-width: 86px;
+  min-height: 38px;
+  resize: both;
+}
+div[window]::-webkit-resizer {
+  display: none;
+}
+div[window] div[titlebar] {
+  width: 100%;
+  height: 28px;
+  position: relative;
+  display: flex;
   align-items: center;
   justify-content: center;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
-  cursor: default;
+  background: rgb(245, 245, 245);
+  box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.15);
 }
-div[checkbox] div[type] {
-  width: 14px;
-  height: 14px;
-  position: relative;
-}
-div[checkbox] div[type] img[mark] {
-  width: 100%;
-  height: 100%;
+div[window] div[titlebar] div[wintools] {
+  width: auto;
+  height: 28px;
+  display: inline-flex;
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 1;
-  scale: 0.6;
-  display: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 8px;
 }
-div[checkbox] div[type] div[gradient] {
-  opacity: 0.17;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 3.5px;
-  z-index: -1;
-  display: none;
+div[window] div[titlebar] div[wintools] div[oval] {
+  width: 12px;
+  height: 12px;
+  border-radius: 6px;
+  margin-right: 8px;
 }
-div[checkbox] div[type] div[fill] {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -2;
-  background: #FFFFFF;
-  border: 0.5px solid rgba(0, 0, 0, 0.15);
-  box-shadow: inset 0 1px 2px 0 rgba(0, 0, 0, 0.1), inset 0 0 2px 0 rgba(0, 0, 0, 0.1);
-  border-radius: 3.5px;
+div[window] div[titlebar] div[wintools] div[close] {
+  background: #ff5f57;
+  border: 0.5px solid rgba(0, 0, 0, 0.2);
 }
-div[checkbox][state=on] div[type] img[mark] {
-  display: initial;
-  filter: invert(1);
+div[window] div[titlebar] div[wintools] div[minimize] {
+  background: #febc2e;
+  border: 0.5px solid rgba(0, 0, 0, 0.2);
 }
-div[checkbox][state=on] div[type] div[gradient] {
-  display: block;
-  background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 96%);
+div[window] div[titlebar] div[wintools] div[zoom] {
+  background: #28c840;
+  border: 0.5px solid rgba(0, 0, 0, 0.2);
 }
-div[checkbox][state=on] div[type] div[fill] {
-  border: none;
-  background: #007aff;
-  box-shadow: 0 0 3px 0 rgba(255, 255, 255, 0.12), 0 1px 2px 0 rgba(255, 255, 255, 0.12), 0 0 1px 0 rgba(255, 255, 255, 0.24);
-}
-div[checkbox][disabled=true][state=on] img[mark] {
-  filter: invert(0) !important;
-  opacity: 0.25 !important;
-}
-div[checkbox][disabled=true][state=on] div[gradient] {
-  display: none;
-}
-div[checkbox][disabled=true][state=on] div[fill] {
-  opacity: 0.5 !important;
-  background: #FFFFFF !important;
-  border: 0.5px solid rgba(0, 0, 0, 0.02) !important;
-  box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.15), 0 1px 0 0 rgba(0, 0, 0, 0.05) !important;
-}
-div[checkbox][disabled=true][state=off] div[fill] {
-  opacity: 0.49;
-  background: #FFFFFF;
-  border: 0.5px solid rgba(0, 0, 0, 0.15);
-  box-shadow: inset 0 1px 2px 0 rgba(0, 0, 0, 0.1), inset 0 0 2px 0 rgba(0, 0, 0, 0.1);
-}
-div[checkbox] p[label] {
-  margin: 0;
-  margin-left: 6px;
+div[window] div[titlebar] p[title] {
   font-size: 13px;
-  font-family: "SFPro-Regular", "PingFangSC-Regular";
+  font-family: "SFPro-Bold", "PingFangSC-Bold";
+  max-width: 40%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+div[window] div[content] {
+  width: 100%;
+  height: 100%;
 }/*# sourceMappingURL=index.css.map */
