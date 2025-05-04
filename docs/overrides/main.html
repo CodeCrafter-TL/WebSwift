@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block announce %}
+{{ super() }}
+
+{% if config.theme.language == "zh" %}
+欢迎来到 WebSwift 的官方网站，希望本网站能对您有一定的帮助！
+{% else %}
+Welcome to the official website of Web Swift, I hope this website can be of some help to you!
+{% endif %}
+
+{% endblock %}
+
+{% block content %}
+
+{% if config.theme.language == "zh" %}
+    <a href="javascript:void(window.print());" class="md-content__button md-icon" title="下载此页">
+        {% include ".icons/material/file-download.svg" %}
+    </a>
+{% else %}
+    <a href="javascript:void(window.print());" class="md-content__button md-icon" title="Download this page">
+        {% include ".icons/material/file-download.svg" %}
+    </a>
+{% endif %}
+
+{{ super() }}
+{% endblock content %}

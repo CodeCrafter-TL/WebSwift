@@ -63,6 +63,7 @@ export class Button extends initElement({
 }
 :host([disabled=true]) {
   box-shadow: 0 0 0 rgba(0, 0, 0, 0.15), 0 1px 0 rgba(0, 0, 0, 0.05);
+  pointer-events: none;
 }
 :host([disabled=true]) [gradient] {
   display: none;
@@ -74,11 +75,26 @@ export class Button extends initElement({
   color: rgba(0, 0, 0, 0.25);
 }`,
     props: {
-        disabled: false
+        disabled: false,
+        command: ""
     },
     syncProps: [
-        "disabled"
-    ]
+        "disabled",
+        "command"
+    ],
+    setup(shadow) {
+      setTimeout(()=>{
+        const command = new Function(this.command);
+        //@ts-ignore
+        this.addEventListener("mousedown", () => {
+          this.style.filter = "brightness(0.9)";
+        });
+        this.addEventListener("mouseup", () => {
+          this.style.filter = "brightness(1)";
+          command();
+        });
+      })
+    }
 }) {
 }
 

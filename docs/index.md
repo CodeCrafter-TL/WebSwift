@@ -22,5 +22,6 @@
     </a>
 </p>
 
-> [!IMPORTANT]
-> Docoments / 文档: https://codecrafter-tl.github.io/WebSwift
+!!! info
+
+    Docoments / 文档: https://codecrafter-tl.github.io/WebSwift

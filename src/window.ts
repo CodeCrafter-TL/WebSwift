@@ -1,6 +1,6 @@
 import { initElement } from "./core/element";
 
-class Window extends initElement({
+export class Window extends initElement({
     name: "c-window",
     template: `<div titlebar>
     <div wintools>
@@ -47,15 +47,18 @@ class Window extends initElement({
 }
 :host div[titlebar] div[wintools] {
   width: auto;
-  height: 28px;
+  height: 12px;
   display: inline-flex;
   position: absolute;
-  top: 0;
+  top: 8px;
   left: 0;
   display: flex;
   align-items: center;
   justify-content: center;
   padding-left: 8px;
+}
+:host div[titlebar] div[wintools]:hover div[oval] img {
+  display: initial;
 }
 :host div[titlebar] div[wintools] div[oval] {
   width: 12px;
@@ -70,7 +73,7 @@ class Window extends initElement({
   width: 100%;
   height: 100%;
   scale: 0.5;
-  opacity: 0;
+  display: none;
 }
 :host div[titlebar] div[wintools] div[close] {
   background: #ff5f57;
@@ -113,8 +116,6 @@ class Window extends initElement({
         })
 
         const ovals = shadow.querySelectorAll("div[oval]");
-        const syms = shadow.querySelectorAll("div[oval] img");
-        const wintools = shadow.querySelector("div[wintools]");
 
         ovals.forEach(oval => {
             oval.addEventListener("mousedown", () => {
@@ -122,16 +123,9 @@ class Window extends initElement({
             });
             oval.addEventListener("mouseup", () => {
                 (oval as HTMLElement).style.filter = "brightness(1)";
-            });
-        });
-        (wintools as HTMLElement).addEventListener("mosueenter", () => {
-            syms.forEach(sym => {
-                (sym as HTMLElement).style.opacity = "1";
-            });
-        });
-        (wintools as HTMLElement).addEventListener("mouseleave", () => {
-            syms.forEach(sym => {
-                (sym as HTMLElement).style.opacity = "0";
+                if (oval.hasAttribute("close")) {
+                  this.parentNode?.removeChild(this);
+                }
             });
         });
     }

@@ -8,3 +8,4 @@ export * from "./button";
 export * from "./messagebox";
 export * from "./checkbox";
 export * from "./window";
+export * from "./switch";

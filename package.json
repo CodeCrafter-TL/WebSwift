@@ -1,4 +1,14 @@
 {
+    "name": "web-swift",
+    "description": "Swift UI on Web Components API based by TypeScript.",
+    "version": "1.0.0",
+    "keywords": [
+        "Swift", "Web", "UI", "CodeCrafter"
+    ],
+    "repository": "CodeCrafter-TL/WebSwift",
+    "homepage": "https://codecrafter-tl.github.io/WebSwift",
+    "author": "CodeCrafter-TL",
+    "main": "./dist/main.js",
     "scripts": {
         "build": "tsc\nrollup --config rollup.config.mjs"
     },

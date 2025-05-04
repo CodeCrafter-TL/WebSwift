@@ -1,6 +1,6 @@
 import { initElement } from "./core/element";
 
-class CheckBox extends initElement({
+export class CheckBox extends initElement({
     name: "c-checkbox",
     template: `<div type>
     <img draggable="false" mark src="./assets/checkmark.svg" />
