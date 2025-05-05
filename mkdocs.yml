@@ -138,6 +138,8 @@ theme: # 此项各个设定因主题而异
   name: material # 主题名称
   custom_dir: docs/overrides # 覆盖目录
   language: zh # 主题语言
+  favicon: swiftui.png
+  logo: swiftui.png
   features:
     # - header.autohide # 顶栏自动隐藏
     - announce.dismiss # 公告栏可以被关闭
@@ -184,7 +186,6 @@ theme: # 此项各个设定因主题而异
         name: 暗黑主题
   font: false # 避免从谷歌加载字体导致网页加载变慢（具体参数可以在自定义 CSS 中指定）
   icon: # 替换掉默认的图标
-    logo: simple/materialformkdocs # 页面左上角徽标
     repo: fontawesome/brands/github # 右上角仓库图标
     edit: material/file-edit # 页面编辑的图标
     view: material/file-eye # 页面查看源代码的图标

@@ -10,7 +10,9 @@
     "author": "CodeCrafter-TL",
     "main": "./dist/main.js",
     "scripts": {
-        "build": "tsc\nrollup --config rollup.config.mjs"
+        "build": "tsc\nrollup --config rollup.config.mjs",
+        "docs": "mkdocs build\ncp -r assets site/docs\ncp -r assets site/docs/checkbox",
+        "push": "git add .\ngit commit -m \"Update\"\ngit push\ncd site\ngit add .\ngit commit -m \"Update docs\"\ngit push origin docs"
     },
     "dependencies": {
         "@rollup/plugin-terser": "^0.4.4",
