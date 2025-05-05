@@ -16,3 +16,101 @@ $iter: 1;
 
     $iter: $iter + 1;
 }
+
+div[input] {
+    width: 206px;
+    height: 22px;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+
+    img[icon] {
+        display: none;
+    }
+
+    input {
+        width: calc(100% - 14px);
+        height: 100%;
+        background: transparent;
+        border: none;
+        outline: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 0;
+        padding: 0 7px;
+        font-family: "SFPro-Regular", "PingFangSC-Regular";
+
+        &:focus~div[fill] {
+            outline: 3px solid rgba(0, 122, 255, 0.50);
+        }
+        &:focus~img[clear] {
+            opacity: 0.25;
+            pointer-events: initial;
+        }
+
+        &::placeholder {
+            font-family: "SFPro-Regular", "PingFangSC-Regular";
+            font-size: 13px;
+            color: rgba(0, 0, 0, 0.25);
+            line-height: 16px;
+        }
+    }
+
+    div[fill] {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -2;
+        outline: 6px solid transparent;
+        transition: outline 0.3s ease;
+        pointer-events: none;
+        background: #fff;
+        box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.30),
+            0 0 0 0 rgba(0, 0, 0, 0.05);
+    }
+
+    img[clear] {
+        opacity: 0;
+        position: absolute;
+        right: 3px;
+        top: 3px;
+        pointer-events: none;
+        width: 16px;
+        height: 16px;
+        transition: opacity 0.25s ease;
+    }
+
+    &[type=search] {
+        img[icon] {
+            display: block;
+            margin-left: 7px;
+        }
+
+        input {
+            width: calc(100% - 35px);
+            padding-left: 28px;
+        }
+
+        div[fill] {
+            background: #fff;
+            box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.30),
+                0 0 0 0 rgba(0, 0, 0, 0.05);
+            border-radius: 5px;
+        }
+    }
+
+    &[disabled=true] {
+        div[fill] {
+            background: rgba(255, 255, 255, 0.50) !important;
+        }
+
+        &[type=search] {
+            img[icon] {
+                opacity: 0.5;
+            }
+        }
+    }
+}

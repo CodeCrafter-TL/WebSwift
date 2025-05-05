@@ -13,4 +13,88 @@
 @font-face {
   font-family: "PingFangSC-Bold";
   src: url(./PingFangSC-Semibold.woff2);
+}
+div[input] {
+  width: 206px;
+  height: 22px;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+div[input] img[icon] {
+  display: none;
+}
+div[input] input {
+  width: calc(100% - 14px);
+  height: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  padding: 0 7px;
+  font-family: "SFPro-Regular", "PingFangSC-Regular";
+}
+div[input] input:focus ~ div[fill] {
+  outline: 3px solid rgba(0, 122, 255, 0.5);
+}
+div[input] input:focus ~ img[clear] {
+  opacity: 0.25;
+  pointer-events: initial;
+}
+div[input] input::-moz-placeholder {
+  font-family: "SFPro-Regular", "PingFangSC-Regular";
+  font-size: 13px;
+  color: rgba(0, 0, 0, 0.25);
+  line-height: 16px;
+}
+div[input] input::placeholder {
+  font-family: "SFPro-Regular", "PingFangSC-Regular";
+  font-size: 13px;
+  color: rgba(0, 0, 0, 0.25);
+  line-height: 16px;
+}
+div[input] div[fill] {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -2;
+  outline: 6px solid transparent;
+  transition: outline 0.3s ease;
+  pointer-events: none;
+  background: #fff;
+  box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.3), 0 0 0 0 rgba(0, 0, 0, 0.05);
+}
+div[input] img[clear] {
+  opacity: 0;
+  position: absolute;
+  right: 3px;
+  top: 3px;
+  pointer-events: none;
+  width: 16px;
+  height: 16px;
+  transition: opacity 0.25s ease;
+}
+div[input][type=search] img[icon] {
+  display: block;
+  margin-left: 7px;
+}
+div[input][type=search] input {
+  width: calc(100% - 35px);
+  padding-left: 28px;
+}
+div[input][type=search] div[fill] {
+  background: #fff;
+  box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.3), 0 0 0 0 rgba(0, 0, 0, 0.05);
+  border-radius: 5px;
+}
+div[input][disabled=true] div[fill] {
+  background: rgba(255, 255, 255, 0.5) !important;
+}
+div[input][disabled=true][type=search] img[icon] {
+  opacity: 0.5;
 }/*# sourceMappingURL=index.css.map */
