@@ -1,0 +1,13 @@
+.blur.highlight .hll {
+    background-color: unset;
+    box-shadow: unset;
+}
+
+.blur .md-code__content > span > span:not(.hll) {
+    filter: blur(1.8px);
+    transition: filter 0.3s ease;
+}
+
+.blur .md-code__content:hover > span > span:not(.hll) {
+    filter: none;
+}

@@ -1,0 +1,33 @@
+/*背景图片样式*/
+[data-md-color-scheme="slate"] .background {
+    background-image: url(../images/background.png); /* 改成你所要的图片 */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0.08;
+    pointer-events: none;
+    filter: blur(5px);
+}
+
+[data-md-color-scheme="default"] .background {
+    background-image: url(../images/background.png); /* 改成你所要的图片 */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0.16;
+    pointer-events: none;
+    filter: blur(5px);
+}
+
