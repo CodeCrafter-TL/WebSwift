@@ -1,0 +1,16 @@
+@font-face {
+  font-family: "SFPro-Regular";
+  src: url(./sf-pro-display_regular.woff2);
+}
+@font-face {
+  font-family: "PingFangSC-Regular";
+  src: url(./PingFangSC-Regular.woff2);
+}
+@font-face {
+  font-family: "SFPro-Bold";
+  src: url(./sf-pro-display_semibold.woff2);
+}
+@font-face {
+  font-family: "PingFangSC-Bold";
+  src: url(./PingFangSC-Semibold.woff2);
+}/*# sourceMappingURL=index.css.map */
