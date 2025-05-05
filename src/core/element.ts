@@ -13,7 +13,7 @@ interface Config<P> {
     };
     syncProps?: (keyof P)[];
     dispatch?: {
-        attrchanges(key: keyof P, value: boolean | string | number): void;
+        attrchanges(this: HTMLElement & P, key: keyof P, value: boolean | string | number): void;
     };
     setup?(this: HTMLElement & P, shadowRoot: ShadowRoot): void;
 };
@@ -67,7 +67,7 @@ export const initElement = function <P>(config: Config<P>): {
                             if (config.syncProps?.includes(prop as keyof P)) {
                                 this.#props[prop] = v
                                 this.setAttribute(prop, v);
-                                config.dispatch?.attrchanges.call<typeof this, any, void>(this, prop, v);
+                                config.dispatch?.attrchanges.call<typeof this & P, any, void>(this as any, prop, v);
                             }
                         }
                     }
@@ -79,7 +79,7 @@ export const initElement = function <P>(config: Config<P>): {
 
         attributeChangedCallback(key: string, _: unknown, newValue: string | null) {
             this[key] = newValue ?? "";
-            config.dispatch?.attrchanges.call<typeof this, any, void>(this, key, newValue);
+            config.dispatch?.attrchanges.call<typeof this & P, any, void>(this as any, key, newValue);
         }
     }
     return InitElement as any;

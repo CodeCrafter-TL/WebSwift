@@ -67,10 +67,14 @@ export class Switch extends initElement({
     },
     syncProps: ["state", "disabled"],
     setup(shadow) {
+        let is_mousedown: boolean;
         this.addEventListener("mousedown", () => {
             this.style.filter = "brightness(0.9)";
+            is_mousedown = true;
         });
-        this.addEventListener("mouseup", () => {
+        window.addEventListener("mouseup", () => {
+            if (!is_mousedown) return;
+            is_mousedown = false;
             this.style.filter = "brightness(1)";
             this.state = this.state == "on" ? "off" : "on";
         });

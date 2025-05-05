@@ -3,7 +3,7 @@ import { initElement } from "./core/element";
 export class CheckBox extends initElement({
     name: "c-checkbox",
     template: `<div type>
-    <img draggable="false" mark src="./assets/checkmark.svg" />
+    <img draggable="false" mark src="./assets/tick.svg" />
     <div gradient></div>
     <div fill></div>
 </div>
@@ -31,7 +31,7 @@ export class CheckBox extends initElement({
   top: 0;
   left: 0;
   z-index: 1;
-  scale: 0.6;
+  scale: 0.8;
   display: none;
 }
 :host div[type] div[gradient] {
@@ -59,7 +59,6 @@ export class CheckBox extends initElement({
 }
 :host([state=on]) div[type] img[mark] {
   display: initial;
-  filter: invert(1);
 }
 :host([state=on]) div[type] div[gradient] {
   display: block;
@@ -71,8 +70,8 @@ export class CheckBox extends initElement({
   box-shadow: 0 0 3px 0 rgba(255, 255, 255, 0.12), 0 1px 2px 0 rgba(255, 255, 255, 0.12), 0 0 1px 0 rgba(255, 255, 255, 0.24);
 }
 :host([disabled=true][state=on]) img[mark] {
-  filter: invert(0) !important;
   opacity: 0.25 !important;
+  filter: invert(1);
 }
 :host([disabled=true][state=on]) div[gradient] {
   display: none;
@@ -104,17 +103,17 @@ export class CheckBox extends initElement({
     },
     syncProps: ["state", "disabled"],
     setup(shadow) {
-        let is_mousedown:boolean;
+        let is_mousedown: boolean;
         this.addEventListener("mousedown", () => {
             is_mousedown = true
             this.style.filter = "brightness(0.9)";
         });
         window.addEventListener("mouseup", () => {
-            if(!is_mousedown) return
-            is_mousedown = false
-            this.state = this.state == "on" ? "off":"on"
+            if (!is_mousedown) return;
+            is_mousedown = false;
+            this.state = this.state == "on" ? "off" : "on"
             this.style.filter = "brightness(1)";
-        })
+        });
     }
 }) {
 

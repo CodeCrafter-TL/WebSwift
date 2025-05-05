@@ -116,12 +116,16 @@ export class Window extends initElement({
         })
 
         const ovals = shadow.querySelectorAll("div[oval]");
+        let is_mousedown: boolean;
 
         ovals.forEach(oval => {
             oval.addEventListener("mousedown", () => {
                 (oval as HTMLElement).style.filter = "brightness(0.9)";
+                is_mousedown = true;
             });
-            oval.addEventListener("mouseup", () => {
+            window.addEventListener("mouseup", () => {
+                if (!is_mousedown) return;
+                is_mousedown = false;
                 (oval as HTMLElement).style.filter = "brightness(1)";
                 if (oval.hasAttribute("close")) {
                   this.parentNode?.removeChild(this);

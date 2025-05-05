@@ -9,3 +9,5 @@ export * from "./messagebox";
 export * from "./checkbox";
 export * from "./window";
 export * from "./switch";
+export * from "./progress";
+export * from "./input";
